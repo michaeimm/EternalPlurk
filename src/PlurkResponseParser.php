@@ -806,7 +806,8 @@ class PlurkResponseParser
 		{
 			foreach($jsonAry as $user)
 			{
-				$users[] = $this->parseUser($user);
+				$info = $this->parseUser($user);
+				$users[$info->id] = $info;
 			}
 		}
 
