@@ -667,14 +667,14 @@ class PlurkApp
 	 */
 	public function getPlurks($offset = 'now', $limit = 50)
 	{
-		$setting = new PlurkPollingSetting();
-		$setting->type = PlurkPollingSetting::TYPE_GET_PLURKS;
+		$setting = new PlurkTimelineSetting();
+		$setting->type = PlurkTimelineSetting::TYPE_GET_PLURKS;
 		$setting->offset = $offset;
 		$setting->limit = (int)$limit;
 		
 		$this->setupAuthSettings($setting);
 		
-		$this->_strategy = new PlurkPolling($setting);
+		$this->_strategy = new PlurkTimeline($setting);
 		return $this->execute();
 	}
 	

@@ -567,6 +567,7 @@ class PlurkResponseParser
 		$info->isUnread				= (int)$plurkAry[PlurkPlurkInfo::KEY_IS_UNREAD];
 		$info->lang					= (string)$plurkAry[PlurkPlurkInfo::KEY_LANG];
 		$info->limitedTo			= (array)$plurkAry[PlurkPlurkInfo::KEY_LIMITED_TO];
+		$info->myAnonymous			= (boolean)$plurkAry[PlurkPlurkInfo::KEY_MY_ANONYMOUS];
 		$info->noComments			= (int)$plurkAry[PlurkPlurkInfo::KEY_NO_COMMENTS];
 		$info->ownerId				= (int)$plurkAry[PlurkPlurkInfo::KEY_OWNER_ID];
 		$info->plurkId				= (int)$plurkAry[PlurkPlurkInfo::KEY_PLURK_ID];
@@ -770,16 +771,14 @@ class PlurkResponseParser
 		$info = new PlurkUserInfo();
 		$info->avatar			= (int)$jsonAry[PlurkUserInfo::KEY_AVATAR];
 		$info->bdayPrivacy		= (int)$jsonAry[PlurkUserInfo::KEY_BDAY_PRIVACY];
-		$info->dateOfBirth		= new DateTime($jsonAry[PlurkUserInfo::KEY_DATE_OF_BIRTH]);
+		$info->dateOfBirth		= new DateTime($jsonAry[PlurkUserInfo::KEY_DATE_OF_BIRTH], new DateTimeZone("UTC"));
 		$info->dateformat		= (int)$jsonAry[PlurkUserInfo::KEY_DATE_FORMAT];
 		$info->defaultLang		= (string)$jsonAry[PlurkUserInfo::KEY_DEFAULT_LANG];
 		$info->displayName		= (string)$jsonAry[PlurkUserInfo::KEY_DISPLAY_NAME];
-		$info->emailConfirmed	= (boolean)$jsonAry[PlurkUserInfo::KEY_EMAIL_CONFIRMED];
 		$info->fullName			= (string)$jsonAry[PlurkUserInfo::KEY_FULL_NAME];
 		$info->gender			= (int)$jsonAry[PlurkUserInfo::KEY_GENDER];
 		$info->hasProfileImage	= (int)$jsonAry[PlurkUserInfo::KEY_HAS_PROFILE_IMAGE];
 		$info->id				= (int)$jsonAry[PlurkUserInfo::KEY_ID];
-		$info->isPremium		= (boolean)$jsonAry[PlurkUserInfo::KEY_IS_PREMIUM];
 		$info->karma			= (double)$jsonAry[PlurkUserInfo::KEY_KARMA];
 		$info->location			= (string)$jsonAry[PlurkUserInfo::KEY_LOCATION];
 		$info->nameColor		= (string)$jsonAry[PlurkUserInfo::KEY_NAME_COLOR];

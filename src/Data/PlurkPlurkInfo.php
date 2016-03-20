@@ -31,6 +31,7 @@ class PlurkPlurkInfo
 	const KEY_IS_UNREAD = 'is_unread';
 	const KEY_LANG = 'lang';
 	const KEY_LIMITED_TO = 'limited_to';
+	const KEY_MY_ANONYMOUS = 'my_anonymous';
 	const KEY_NO_COMMENTS = 'no_comments';
 	const KEY_OWNER_ID = 'owner_id';
 	const KEY_PLURK = 'plurk';
@@ -64,6 +65,7 @@ class PlurkPlurkInfo
 	public $isUnread;
 	public $lang;
 	public $limitedTo;
+	public $myAnonymous;
 	public $noComments;
 	public $ownerId;
 	public $plurkId;
