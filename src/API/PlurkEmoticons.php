@@ -35,6 +35,7 @@ class PlurkEmoticons extends PlurkOAuth
 		{
 			case PlurkEmoticonsSetting::TYPE_GET:	return $this->get();
 			case PlurkEmoticonsSetting::TYPE_ADD:	return $this->addFromURL();
+			case PlurkEmoticonsSetting::TYPE_DELETE:	return $this->delete();
 			default:								return false;
 		}		
 	}
@@ -76,7 +77,30 @@ class PlurkEmoticons extends PlurkOAuth
 
 		$url = sprintf('%sEmoticons/addFromURL', self::HTTP_URL);
 
-		$this->setResultType(PlurkResponseParser::RESULT_EMOTICONS);
+		$this->setResultType(PlurkResponseParser::RESULT_SUCCESS_TEXT);
+		return $this->sendRequest($url);
+	}
+
+	// ------------------------------------------------------------------------------------------ //
+	
+
+	// ------------------------------------------------------------------------------------------ //
+
+
+	/**
+	 * 
+	 * @return	mixed	Returns a PlurkEmoticonsInfo object on success or FALSE on failure.
+	 * @link	http://www.plurk.com/Help/extraSmilies
+	 */
+	public function delete()
+	{
+		$args = array(
+			'url' 			=> $this->_setting->url
+		);
+
+		$url = sprintf('%sEmoticons/delete', self::HTTP_URL);
+
+		$this->setResultType(PlurkResponseParser::RESULT_SUCCESS_TEXT);
 		return $this->sendRequest($url);
 	}
 

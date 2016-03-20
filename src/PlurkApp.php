@@ -514,6 +514,24 @@ class PlurkApp
 		$this->_strategy = new PlurkEmoticons($setting);
 		return $this->execute();
 	}
+
+
+	/**
+	 *
+	 * @return	mixed	Returns a PlurkEmoticonsInfo object on success or FALSE on failure.
+	 * @link	http://www.plurk.com/Help/extraSmilies
+	 */
+	public function deleteEmoticon($url)
+	{
+		$setting = new PlurkEmoticonsSetting();
+		$setting->type = PlurkEmoticonsSetting::TYPE_DELETE;
+		$setting->url = $url;
+		
+		$this->setupAuthSettings($setting);
+		
+		$this->_strategy = new PlurkEmoticons($setting);
+		return $this->execute();
+	}
 	
 	// ------------------------------------------------------------------------------------------ //
 	// Friends and fans

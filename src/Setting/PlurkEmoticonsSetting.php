@@ -18,6 +18,7 @@ class PlurkEmoticonsSetting extends PlurkOAuthSetting
 {
 	const TYPE_GET = 1;
 	const TYPE_ADD = 2;
+	const TYPE_DELETE = 3;
 
 	public $url;
 	public $keyword;
