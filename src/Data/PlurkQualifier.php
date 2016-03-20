@@ -34,5 +34,6 @@ class PlurkQualifier
 	const QUALIFIER_HOPES = 'hopes';
 	const QUALIFIER_NEEDS = 'needs';
 	const QUALIFIER_WONDERS = 'wonders';
+	const QUALIFIER_WHISPERS = 'whispers';
 }
 ?>
