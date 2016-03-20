@@ -771,7 +771,7 @@ class PlurkResponseParser
 		$info = new PlurkUserInfo();
 		$info->avatar			= (int)$jsonAry[PlurkUserInfo::KEY_AVATAR];
 		$info->bdayPrivacy		= (int)$jsonAry[PlurkUserInfo::KEY_BDAY_PRIVACY];
-		$info->dateOfBirth		= new DateTime($jsonAry[PlurkUserInfo::KEY_DATE_OF_BIRTH], new DateTimeZone("UTC"));
+		$info->dateOfBirth		= new DateTime($jsonAry[PlurkUserInfo::KEY_DATE_OF_BIRTH]);
 		$info->dateformat		= (int)$jsonAry[PlurkUserInfo::KEY_DATE_FORMAT];
 		$info->defaultLang		= (string)$jsonAry[PlurkUserInfo::KEY_DEFAULT_LANG];
 		$info->displayName		= (string)$jsonAry[PlurkUserInfo::KEY_DISPLAY_NAME];

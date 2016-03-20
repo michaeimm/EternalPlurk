@@ -479,6 +479,41 @@ class PlurkApp
 		$this->_strategy = new PlurkEmoticons($setting);
 		return $this->execute();
 	}
+
+	/**
+	 *
+	 * @return	mixed	Returns a PlurkEmoticonsInfo object on success or FALSE on failure.
+	 * @link	http://www.plurk.com/Help/extraSmilies
+	 */
+	public function addEmoticon($url)
+	{
+		$setting = new PlurkEmoticonsSetting();
+		$setting->type = PlurkEmoticonsSetting::TYPE_ADD;
+		$setting->url = $url;
+		
+		$this->setupAuthSettings($setting);
+		
+		$this->_strategy = new PlurkEmoticons($setting);
+		return $this->execute();
+	}
+
+	/**
+	 *
+	 * @return	mixed	Returns a PlurkEmoticonsInfo object on success or FALSE on failure.
+	 * @link	http://www.plurk.com/Help/extraSmilies
+	 */
+	public function addEmoticonWithKeyword($url, $keyword)
+	{
+		$setting = new PlurkEmoticonsSetting();
+		$setting->type = PlurkEmoticonsSetting::TYPE_ADD;
+		$setting->url = $url;
+		$setting->keyword = $keyword;
+		
+		$this->setupAuthSettings($setting);
+		
+		$this->_strategy = new PlurkEmoticons($setting);
+		return $this->execute();
+	}
 	
 	// ------------------------------------------------------------------------------------------ //
 	// Friends and fans
@@ -665,7 +700,7 @@ class PlurkApp
 	 * @return	mixed			Returns a PlurkPlurksUsersInfo object on success or FALSE on 
 	 * 							failure.
 	 */
-	public function getPlurks($offset = 'now', $limit = 50)
+	public function getPlurks($offset = 'now', $limit = 20)
 	{
 		$setting = new PlurkTimelineSetting();
 		$setting->type = PlurkTimelineSetting::TYPE_GET_PLURKS;

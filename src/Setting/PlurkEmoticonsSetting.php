@@ -17,5 +17,9 @@ require_once('PlurkOAuthSetting.php');
 class PlurkEmoticonsSetting extends PlurkOAuthSetting
 {
 	const TYPE_GET = 1;
+	const TYPE_ADD = 2;
+
+	public $url;
+	public $keyword;
 }
 ?>
