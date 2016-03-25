@@ -2,8 +2,8 @@
 // Include the main.php then all the files of EternalPlurk will be included.
 require_once('src/main.php');
 
-$consumerKey = 'CTy2oRhSwHxY';
-$consumerSecret = 'U1UPigFKfsG8q7o3Khf4BinGydfCbrxC';
+$consumerKey = null;
+$consumerSecret = null;
 $oAuthToken = null;
 $oAuthTokenSecret = null;
 
