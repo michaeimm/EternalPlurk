@@ -2,8 +2,8 @@
 // Include the main.php then all the files of EternalPlurk will be included.
 require_once('src/main.php');
 
-$consumerKey = 'Plurk App\'s key.';
-$consumerSecret = 'The Plurk App\'s secret.';
+$consumerKey = 'CTy2oRhSwHxY';
+$consumerSecret = 'U1UPigFKfsG8q7o3Khf4BinGydfCbrxC';
 $oAuthToken = null;
 $oAuthTokenSecret = null;
 
@@ -38,17 +38,28 @@ if(empty($oAuthToken) && empty($oAuthTokenSecret))
 		{
 			// Got a PlurkOAuthInfo object.
 			// Please use $info->oAuthToken and $info->oAuthToken to accees Plurk API for the user(s).
-			var_dump($info);
+			$oAuthToken = $info->oAuthToken;
+			$oAuthTokenSecret = $info->oAuthTokenSecret;
+			// var_dump($info);
+			$info = getProfile('carychow');
+			if($info === false)
+			{
+				// Failed. Print the error message.
+				echo $app->getErrMsg();
+			}
+			else
+			{
+				// Got a PlurkProfileInfo object.
+				var_dump($info);
+			}
 		}
 	}
 }
 else
 {
-	// Create a PlurkApp instance.
-	$app = new PlurkApp($consumerKey, $consumerSecret, $oAuthToken, $oAuthTokenSecret);
-	
+
 	// Try to get the public profile of me (carychow).
-	$info = $app->getPublicProfile('carychow');
+	$info = getProfile('carychow');
 	
 	if($info === false)
 	{
@@ -61,4 +72,10 @@ else
 		var_dump($info);
 	}
 }
+
+function getProfile($account){
+	$app = new PlurkApp($GLOBALS['consumerKey'], $GLOBALS['consumerSecret'], $GLOBALS['oAuthToken'], $GLOBALS['oAuthTokenSecret']);
+	return $app->getPublicProfile($account);
+}
+
 ?>
