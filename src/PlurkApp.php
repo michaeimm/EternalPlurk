@@ -774,14 +774,16 @@ class PlurkApp
 	 * also if the current logged in user is following the user, are friends with or is a fan.
 	 * P.S. support two-legged OAuth without access token
 	 *
-	 * @param	mixed	$userId	Can be integer (like 34) or nick name (like amix).
+	 * @param	userId	$userId	Can be integer (like 34) or nick name (like amix).
+	 * @param	includePlurks	$includePlurks	Can be string 'true' or 'false'.
 	 * @return	mixed	Returns a PlurkProfileInfo object on success or FALSE on failure.
 	 */
-	public function getPublicProfile($userId)
+	public function getPublicProfile($userId, $includePlurks = 'true')
 	{
 		$setting = new PlurkProfileSetting();
 		$setting->type = PlurkProfileSetting::TYPE_GET_PUBLIC_PROFILE;
 		$setting->userId = $userId;
+		$setting->includePlurks = $includePlurks;
 		
 		$this->setupAuthSettings($setting);
 		

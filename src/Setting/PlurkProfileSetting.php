@@ -20,5 +20,6 @@ class PlurkProfileSetting extends PlurkOAuthSetting
 	const TYPE_GET_PUBLIC_PROFILE = 2;
 	
 	public $userId;
+	public $includePlurks;
 }
 ?>

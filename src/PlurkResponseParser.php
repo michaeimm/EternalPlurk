@@ -657,7 +657,8 @@ class PlurkResponseParser
 		$info->hasReadPermission	= (bool)$jsonAry[PlurkProfileInfo::KEY_HAS_READ_PERMISSION];
 		$info->isFan				= (bool)$jsonAry[PlurkProfileInfo::KEY_IS_FAN];
 		$info->isFollowing			= (bool)$jsonAry[PlurkProfileInfo::KEY_IS_FOLLOWING];
-		$info->plurks				= $this->parsePlurks($jsonAry[PlurkProfileInfo::KEY_PLURKS]);
+		if(!empty($info->plurks))
+			$info->plurks				= $this->parsePlurks($jsonAry[PlurkProfileInfo::KEY_PLURKS]);
 		$info->privacy				= (int)$jsonAry[PlurkProfileInfo::KEY_PRIVACY];
 		$info->userInfo				= $this->parseUser($jsonAry[PlurkProfileInfo::KEY_USER_INFO]);
 		return $info;
@@ -769,7 +770,9 @@ class PlurkResponseParser
 	protected function parseUser(array $jsonAry)
 	{
 		$info = new PlurkUserInfo();
-		$info->avatar			= (int)$jsonAry[PlurkUserInfo::KEY_AVATAR];
+		$info->about			= $jsonAry[PlurkUserInfo::KEY_ABOUT];
+		$info->avatar			= $jsonAry[PlurkUserInfo::KEY_AVATAR];
+		$info->avatarBig		= $jsonAry[PlurkUserInfo::KEY_AVATAR_BIG];
 		$info->bdayPrivacy		= (int)$jsonAry[PlurkUserInfo::KEY_BDAY_PRIVACY];
 		$info->dateOfBirth		= new DateTime($jsonAry[PlurkUserInfo::KEY_DATE_OF_BIRTH]);
 		$info->dateformat		= (int)$jsonAry[PlurkUserInfo::KEY_DATE_FORMAT];
@@ -788,6 +791,8 @@ class PlurkResponseParser
 		$info->timezone			= (string)$jsonAry[PlurkUserInfo::KEY_TIMEZONE];
 		$info->uid				= (int)$jsonAry[PlurkUserInfo::KEY_UID];
 		$info->verifiedAccount	= (boolean)$jsonAry[PlurkUserInfo::KEY_VERIFIED_ACCOUNT];
+		$info->friendsCount		= (int)$jsonAry[PlurkUserInfo::KEY_FRIENDS_COUNT];
+		$info->fansCount		= (int)$jsonAry[PlurkUserInfo::KEY_FANS_COUNT];
 		return $info;
 	}
 

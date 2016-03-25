@@ -34,7 +34,9 @@ class PlurkUserInfo
 	const BDAY_SHOW_MONTH_DAY = 1;
 	const BDAY_SHOW_FULL = 2;
 
+	const KEY_ABOUT = 'about';
 	const KEY_AVATAR = 'avatar';
+	const KEY_AVATAR_BIG = 'avatar_big';
 	const KEY_BDAY_PRIVACY = 'bday_privacy';
 	const KEY_DATE_OF_BIRTH = 'date_of_birth';
 	const KEY_DATE_FORMAT = 'dateformat';
@@ -55,8 +57,12 @@ class PlurkUserInfo
 	const KEY_TIMEZONE = 'timezone';
 	const KEY_UID = 'uid';
 	const KEY_VERIFIED_ACCOUNT = 'verified_account';
+	const KEY_FRIENDS_COUNT = 'friends_count';
+	const KEY_FANS_COUNT = 'fans_count';
 
+	public $about;
 	public $avatar;
+	public $avatarBig;
 	public $bdayPrivacy;
 	public $dateOfBirth;
 	public $dateformat;
@@ -77,5 +83,7 @@ class PlurkUserInfo
 	public $timezone;
 	public $uid;
 	public $verifiedAccount;
+	public $friendsCount;
+	public $fansCount;
 }
 ?>

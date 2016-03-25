@@ -65,7 +65,10 @@ class PlurkProfile extends PlurkOAuth
 	private function getPublicProfile()
 	{
 		$url = sprintf('%sProfile/getPublicProfile', self::HTTP_URL);
-		$args = array('user_id'=>$this->_setting->userId);
+		$args = array(
+			'user_id'=>$this->_setting->userId, 
+			'include_plurks'=>$this->_setting->includePlurks
+		);
 
 		$this->setResultType(PlurkResponseParser::RESULT_PROFILE);
 		return $this->sendRequest($url, $args);
