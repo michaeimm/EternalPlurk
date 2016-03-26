@@ -770,15 +770,19 @@ class PlurkResponseParser
 	protected function parseUser(array $jsonAry)
 	{
 		$info = new PlurkUserInfo();
-		$info->about			= $jsonAry[PlurkUserInfo::KEY_ABOUT];
-		$info->avatar			= $jsonAry[PlurkUserInfo::KEY_AVATAR];
-		$info->avatarBig		= $jsonAry[PlurkUserInfo::KEY_AVATAR_BIG];
+		$info->about			= (string)$jsonAry[PlurkUserInfo::KEY_ABOUT];
+		$info->avatar			= (string)$jsonAry[PlurkUserInfo::KEY_AVATAR];
+		$info->avatarBig		= (string)$jsonAry[PlurkUserInfo::KEY_AVATAR_BIG];
+		$info->avatarMedium		= (string)$jsonAry[PlurkUserInfo::KEY_AVATAR_MEDIUM];
+		$info->avatarSmall		= (string)$jsonAry[PlurkUserInfo::KEY_AVATAR_SMALL];
 		$info->bdayPrivacy		= (int)$jsonAry[PlurkUserInfo::KEY_BDAY_PRIVACY];
 		$info->dateOfBirth		= new DateTime($jsonAry[PlurkUserInfo::KEY_DATE_OF_BIRTH]);
 		$info->dateformat		= (int)$jsonAry[PlurkUserInfo::KEY_DATE_FORMAT];
 		$info->defaultLang		= (string)$jsonAry[PlurkUserInfo::KEY_DEFAULT_LANG];
 		$info->displayName		= (string)$jsonAry[PlurkUserInfo::KEY_DISPLAY_NAME];
+		$info->fansCount		= (int)$jsonAry[PlurkUserInfo::KEY_FANS_COUNT];
 		$info->fullName			= (string)$jsonAry[PlurkUserInfo::KEY_FULL_NAME];
+		$info->friendsCount		= (int)$jsonAry[PlurkUserInfo::KEY_FRIENDS_COUNT];
 		$info->gender			= (int)$jsonAry[PlurkUserInfo::KEY_GENDER];
 		$info->hasProfileImage	= (int)$jsonAry[PlurkUserInfo::KEY_HAS_PROFILE_IMAGE];
 		$info->id				= (int)$jsonAry[PlurkUserInfo::KEY_ID];
@@ -786,13 +790,13 @@ class PlurkResponseParser
 		$info->location			= (string)$jsonAry[PlurkUserInfo::KEY_LOCATION];
 		$info->nameColor		= (string)$jsonAry[PlurkUserInfo::KEY_NAME_COLOR];
 		$info->nickName			= (string)$jsonAry[PlurkUserInfo::KEY_NICK_NAME];
+		$info->pageTitle		= (string)$jsonAry[PlurkUserInfo::KEY_PAGE_TITLE];
+		$info->plurksCount		= (int)$jsonAry[PlurkUserInfo::KEY_PLURKS_COUNT];
 		$info->recruited		= (int)$jsonAry[PlurkUserInfo::KEY_RECRUITED];
 		$info->relationship		= (string)$jsonAry[PlurkUserInfo::KEY_RELATIONSHIP];
 		$info->timezone			= (string)$jsonAry[PlurkUserInfo::KEY_TIMEZONE];
 		$info->uid				= (int)$jsonAry[PlurkUserInfo::KEY_UID];
 		$info->verifiedAccount	= (boolean)$jsonAry[PlurkUserInfo::KEY_VERIFIED_ACCOUNT];
-		$info->friendsCount		= (int)$jsonAry[PlurkUserInfo::KEY_FRIENDS_COUNT];
-		$info->fansCount		= (int)$jsonAry[PlurkUserInfo::KEY_FANS_COUNT];
 		return $info;
 	}
 
