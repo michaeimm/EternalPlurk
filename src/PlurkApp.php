@@ -756,12 +756,14 @@ class PlurkApp
 	 * a profile and render a timeline of the latest plurks.
 	 * P.S. requires user's access token
 	 *
+	 * @param	includePlurks	$includePlurks	Can be string 'true' or 'false'.
 	 * @return	mixed	Returns a PlurkProfileInfo object on success or FALSE on failure.
 	 */
-	public function getOwnProfile()
+	public function getOwnProfile($includePlurks = 'true')
 	{
 		$setting = new PlurkProfileSetting();
 		$setting->type = PlurkProfileSetting::TYPE_GET_OWN_PROFILE;
+		$setting->includePlurks = $includePlurks;
 		
 		$this->setupAuthSettings($setting);
 		
