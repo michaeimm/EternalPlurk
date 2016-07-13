@@ -33,7 +33,8 @@ class PlurkOAuth extends PlurkBase
 
 	const OAUTH_HOST = 'http://www.plurk.com';
 	const REQUEST_TOKEN_URL = 'http://www.plurk.com/OAuth/request_token';
-	const AUTHORIZE_URL = 'http://www.plurk.com/OAuth/authorize';
+	const AUTHORIZE_URL = 'https://www.plurk.com/OAuth/authorize';
+	const AUTHORIZE_URL_FOR_MOBILE = 'https://www.plurk.com/m/authorize';
 	const ACCESS_TOKEN_URL = 'http://www.plurk.com/OAuth/access_token';
 	
 	const SESSION_OATUTH_TOKEN	= 'oAuthToken';
@@ -221,7 +222,8 @@ class PlurkOAuth extends PlurkBase
 	 */
 	private function authorize($oAuthToken)
 	{
-		$url = sprintf('%s?oauth_token=%s', self::AUTHORIZE_URL, $oAuthToken);
+		$authorizeUrl = ($this->isMobile())?self::AUTHORIZE_URL_FOR_MOBILE:self::AUTHORIZE_URL;
+		$url = sprintf('%s?oauth_token=%s', $authorizeUrl, $oAuthToken);
 		session_write_close();
 		
 		header("Location: $url");
@@ -231,6 +233,10 @@ class PlurkOAuth extends PlurkBase
 	{
 		unset($_SESSION[self::SESSION_OATUTH_TOKEN]);
 		unset($_SESSION[self::SESSION_OAUTH_SECRET]);
+	}
+
+	private function isMobile() {
+	    return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
 	}
 
 	// ------------------------------------------------------------------------------------------ //
