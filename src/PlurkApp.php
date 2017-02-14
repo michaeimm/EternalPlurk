@@ -481,6 +481,24 @@ class PlurkApp
 	}
 
 	/**
+	 * Emoticons are a big part of Plurk since they make it easy to express feelings.
+	 * P.S. support two-legged OAuth without access token
+	 *
+	 * @return	mixed	Returns a PlurkEmoticonsInfo object on success or FALSE on failure.
+	 * @link	http://www.plurk.com/Help/extraSmilies
+	 */
+	public function getUserEmoticons()
+	{
+		$setting = new PlurkUserEmoticonsSetting();
+		$setting->type = PlurkUserEmoticonsSetting::TYPE_GET;
+		
+		$this->setupAuthSettings($setting);
+		
+		$this->_strategy = new PlurkUserEmoticons($setting);
+		return $this->execute();
+	}
+
+	/**
 	 *
 	 * @return	mixed	Returns a PlurkEmoticonsInfo object on success or FALSE on failure.
 	 * @link	http://www.plurk.com/Help/extraSmilies

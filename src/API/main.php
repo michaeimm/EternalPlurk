@@ -17,6 +17,7 @@ require_once('PlurkBase.php');
 require_once('PlurkBlocks.php');
 require_once('PlurkCliques.php');
 require_once('PlurkEmoticons.php');
+require_once('PlurkUserEmoticons.php');
 require_once('PlurkFriendsFans.php');
 require_once('PlurkOAuth.php');
 require_once('PlurkPolling.php');
