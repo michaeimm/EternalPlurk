@@ -55,7 +55,7 @@ class PlurkUsers extends PlurkOAuth
 		$dob = $this->_setting->dob;
 		$birth = ($dob instanceof DateTime) ? $dob : new DateTime((string)$dob);
 
-		$url = sprintf('%sUsers/register', self::HTTPS_URL);
+		$url = sprintf('%sUsers/register', self::HTTP_URL);
 		$args = array(
 			'nick_name'		=>	(string)$this->_setting->nickName,
 			'full_name'		=>	(string)$this->_setting->fullName,
@@ -81,7 +81,7 @@ class PlurkUsers extends PlurkOAuth
 	 */
 	private function login()
 	{
-		$url = sprintf('%sUsers/login', self::HTTPS_URL);
+		$url = sprintf('%sUsers/login', self::HTTP_URL);
 		$args = array(
 			'username'	=>	(string)$this->_setting->username,
 			'password'	=>	(string)$this->_setting->password
@@ -117,7 +117,7 @@ class PlurkUsers extends PlurkOAuth
 	 */
 	private function update()
 	{
-		$url = sprintf('%sUsers/update', self::HTTPS_URL);
+		$url = sprintf('%sUsers/update', self::HTTP_URL);
 		$args = array('current_password' => (string)$this->_setting->password);
 
 		if(!empty($this->_setting->fullName))

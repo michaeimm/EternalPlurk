@@ -31,11 +31,11 @@ class PlurkOAuth extends PlurkBase
 	 */
 	const REQUEST_POST = 'POST';
 
-	const OAUTH_HOST = 'http://www.plurk.com';
-	const REQUEST_TOKEN_URL = 'http://www.plurk.com/OAuth/request_token';
+	const OAUTH_HOST = 'https://www.plurk.com';
+	const REQUEST_TOKEN_URL = 'https://www.plurk.com/OAuth/request_token';
 	const AUTHORIZE_URL = 'https://www.plurk.com/OAuth/authorize';
 	const AUTHORIZE_URL_FOR_MOBILE = 'https://www.plurk.com/m/authorize';
-	const ACCESS_TOKEN_URL = 'http://www.plurk.com/OAuth/access_token';
+	const ACCESS_TOKEN_URL = 'https://www.plurk.com/OAuth/access_token';
 	
 	const SESSION_OATUTH_TOKEN	= 'oAuthToken';
 	const SESSION_OAUTH_SECRET	= 'oAuthTokenSecret';
