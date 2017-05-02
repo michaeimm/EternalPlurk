@@ -20,11 +20,18 @@ interface PlurkStrategy
 	// ------------------------------------------------------------------------------------------ //
 
 	/**
-	 * URL of Plurk API via HTTPS.
+	 * URL of Plurk API via HTTP.
 	 *
 	 * @var	string
 	 */
 	const HTTP_URL = 'https://www.plurk.com/APP/';
+
+	/**
+	 * URL of Plurk API via HTTPS.
+	 *
+	 * @var	string
+	 */
+	const HTTPS_URL = 'https://www.plurk.com/APP/';
 
 	// ------------------------------------------------------------------------------------------ //
 
