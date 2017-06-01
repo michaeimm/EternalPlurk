@@ -560,7 +560,7 @@ class PlurkResponseParser
 
 		$info = new PlurkPlurkInfo();
 		$info->content				= (string)$plurkAry[PlurkPlurkInfo::KEY_CONTENT];
-		$info->contentRaw			= (int)$plurkAry[PlurkPlurkInfo::KEY_CONTENT_RAW];
+		$info->contentRaw			= (string)$plurkAry[PlurkPlurkInfo::KEY_CONTENT_RAW];
 		$info->entryPosted			= (string)$plurkAry[PlurkPlurkInfo::KEY_ENTRY_POSTED];
 		$info->favorers				= $plurkAry[PlurkPlurkInfo::KEY_FAVORERS];
 		$info->favoriteCount		= (int)$plurkAry[PlurkPlurkInfo::KEY_FAVORITE_COUNT];
