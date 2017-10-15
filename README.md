@@ -1,7 +1,7 @@
-#EternalPlurk
+# EternalPlurk
 
 
-##Introduction
+## Introduction
 
 It is a package of my(Cary Chow's, the author) private SDK for Plurk. It requires PHP 5.2 or higher.
 
@@ -11,7 +11,7 @@ Also, there are no statements about when will it be unsupported. Please use vers
 
 The [OAuth library](http://oauth.googlecode.com/svn/code/php/) is written by [Andy Smith](http://term.ie/). You may try to update the file(s) if there is any update.
 
-##Contact
+## Contact
 
 If only to say "Hello, it works!", or to ask for a feature or report a bug,
 or for basic support write to:
